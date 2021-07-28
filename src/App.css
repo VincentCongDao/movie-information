@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: rgb(21, 27, 44);
+  color: white;
+  font-family: " Helvetica",
+    sans-serif
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  margin: 0 50px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+
+}
+
+.movie-section {
+  display: flex;
+  margin: 25px 0;
+}
+
+.card {
+  width: 250px;
+  border-radius: 5px;
+  margin: 2px;
+  transition: transform 500ms;
+  position: relative;
+  display: block;
+}
+
+.card:after {
+  content: "";
+}
+
+img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.hero {
+  width: 100%;
+  position: relative;
+}
+
+.info-section {
+  position: absolute;
+  top: 50%;
+  color: black;
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: white;
+}
+
+.button-section>button {
+  background-color: rgba(24, 23, 23, 0.5);
+  padding: 5px;
   color: white;
+  font-weight: 400;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.button-section>button>svg {
+  margin: 0 5px;
+  font-size: 18px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.movie-section:focus-within .card,
+.movie-section:focus,
+.card {
+  transform: translate(-25%);
+  z-index: 1;
+}
+
+.card:focus~.card,
+.card:hover~.card {
+  transform: translateX(25%)
+}
+
+.movie-section .card:focus,
+.movie-section .card:hover {
+  transform: scale(1.2)
+}
+
+.more-section {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  border-radius: 0 10px 10px 0;
+}
+
+.more-section:hover {
+  background-color: rgba(255, 255, 255, 0.5)
+}
+
+.end-section {
+  width: 100%;
+  text-align: center;
+  animation: blinking 1.2s infinite
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 0
   }
-  to {
-    transform: rotate(360deg);
+
+  50% {
+    opacity: 1
+  }
+
+  75% {
+    opacity: 0.5
+  }
+
+  100% {
+    opacity: 1
   }
 }
